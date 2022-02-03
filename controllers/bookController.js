@@ -1,6 +1,5 @@
 // ./controllers/bookController.js
 
-const res = require("express/lib/response")
 const Book = require("./../models/Book")
 
 exports.getBooks = async (req, res) => {
