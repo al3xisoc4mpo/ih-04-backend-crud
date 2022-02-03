@@ -1,15 +1,15 @@
 // ./index.js
 
 // 1. IMPORTACIONES
-const express			= require("express")
-const app				= express()
+const express = require("express")
+const app = express()
 
 // 2. MIDDLEWARES
 require("dotenv").config()
 
 
 // 3. RUTEO
-
+app.use("/", require("./routes/index"))
 
 
 // 4. SERVIDOR
