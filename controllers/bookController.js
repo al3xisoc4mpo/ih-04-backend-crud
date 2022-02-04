@@ -55,3 +55,36 @@ exports.getSingleBook = async (req, res) => {
         book: getTheBook
     })
 }
+
+exports.editBook = async (req, res) => {
+
+    const { bookID } = req.params
+    const foundBook = await Book.findById(bookID)
+    console.log(foundBook)
+    res.render("books/edit",{
+        book: foundBook
+    })
+}
+
+exports.editBookForm = async (req,res) => {
+
+    const {bookID} = req.params
+    const {title, description,author,rating} = req.body
+    const updatedBook = await Book.findByIdAndUpdate(
+        bookID,
+        {title, description,author,rating},
+        {new: true}
+    )
+
+    res.redirect(`/books/${updatedBook._id}`)
+}
+
+exports.deleteBook = async (req, res) => {
+
+	const { bookID } = req.params
+
+	await Book.findByIdAndDelete(bookID)
+
+	res.redirect("/books")
+
+}
