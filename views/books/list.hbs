@@ -3,13 +3,15 @@
 
 <h1>Listado de libros</h1>
 
+<a href="/books/create">Crear libro</a>
+
 {{#each data }}
 <div>
     <h3>{{title}}</h3>
     <a href="/books/{{_id}}">Ver detalles</a>
     <a href="/books/{{_id}}/edit">Editar libro</a>
     <form action="/books/{{_id}}/delete" method="POST">
-	<button>Borrar</button>				
+	    <button>Borrar</button>				
 	</form>
 </div>
 {{/each}}
